@@ -34,6 +34,7 @@ class Plot:
         self.xaxisTitle = xaxisTitle
         self.yaxisTitle = yaxisTitle
         self.datacolor = 'black'
+        self.errcolor = 'black'
         self.fitcolor = 'blue'
         self.xlog = xlog
         self.ylog = ylog
@@ -62,13 +63,13 @@ class Plot:
             new_prediction = result.eval(x=x_continuo)
             #Plot do fit
             if(self.xerror == True and self.yerror == True ):
-                plt.errorbar(self.x, self.y, xerr = self.xerr, yerr = self.yerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, xerr = self.xerr, yerr = self.yerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,new_prediction, 'r',linewidth=1.3, color = self.fitcolor)
             elif(self.xerror == True):
-                plt.errorbar(self.x, self.y, xerr = self.xerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, xerr = self.xerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,new_prediction, 'r',linewidth=1.3, color = self.fitcolor)
             elif(self.yerror == True):
-                plt.errorbar(self.x, self.y, yerr = self.yerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, yerr = self.yerr,markersize=self.marker_size,fmt=self.marker_style,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,new_prediction, 'r',linewidth=1.3, color = self.fitcolor)
             else:
                 plt.plot(self.x,self.y,self.marker_style, markersize=self.marker_size,color = self.datacolor)
@@ -79,13 +80,13 @@ class Plot:
             x_continuo = np.linspace(min(self.x),max(self.x),1000)
             #Plot do fit
             if(self.xerror == True and self.yerror == True ):
-                plt.errorbar(self.x, self.y, xerr = self.xerr, yerr = self.yerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, xerr = self.xerr, yerr = self.yerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,cs(x_continuo), 'r',color = self.fitcolor)
             elif(self.xerror == True):
-                plt.errorbar(self.x, self.y, xerr = self.xerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, xerr = self.xerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,cs(x_continuo), 'r',color = self.fitcolor)
             elif(self.yerror == True):
-                plt.errorbar(self.x, self.y, yerr = self.yerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.datacolor, capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y, yerr = self.yerr,fmt = self.marker_style, markersize=self.marker_size,color = self.datacolor ,ecolor = self.errcolor, capthick=1, capsize=5)
                 plt.plot(x_continuo,cs(x_continuo), 'r',color = self.fitcolor)
             else:
                 plt.plot(self.x,self.y, self.marker_style,markersize=self.marker_size,color = self.datacolor)
@@ -94,11 +95,11 @@ class Plot:
         if(plot == "Scatter" ):  
             #Plot do fit
             if(self.xerror == True and self.yerror == True):
-                plt.errorbar(self.x, self.y,markersize=self.marker_size, xerr = self.xerr, yerr = self.yerr,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor,capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y,markersize=self.marker_size, xerr = self.xerr, yerr = self.yerr,fmt=self.marker_style,color = self.datacolor ,ecolor =self.errcolor,capthick=1, capsize=5)
             elif(self.xerror == True):
-                plt.errorbar(self.x, self.y,markersize=self.marker_size, xerr = self.xerr,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor,capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y,markersize=self.marker_size, xerr = self.xerr,fmt=self.marker_style,color = self.datacolor ,ecolor = self.errcolor,capthick=1, capsize=5)
             elif(self.yerror == True):
-                plt.errorbar(self.x, self.y,markersize=self.marker_size, yerr = self.yerr,fmt=self.marker_style,color = self.datacolor ,ecolor = self.datacolor,capthick=1, capsize=5)
+                plt.errorbar(self.x, self.y,markersize=self.marker_size, yerr = self.yerr,fmt=self.marker_style,color = self.datacolor ,ecolor = self.errcolor,capthick=1, capsize=5)
             else:
                 plt.plot(self.x,self.y, self.marker_style,markersize=self.marker_size,color = self.datacolor)      
 
